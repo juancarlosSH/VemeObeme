@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="100" height="100" viewBox="0 0 100 100">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="Rectángulo_1541" data-name="Rectángulo 1541" width="100" height="100" transform="translate(37 280)" fill="#fff" stroke="#707070" stroke-width="1"/>
+    </clipPath>
+  </defs>
+  <g id="Enmascarar_grupo_2" data-name="Enmascarar grupo 2" transform="translate(-37 -280)" clip-path="url(#clip-path)">
+    <g id="loupe" transform="translate(37 280)">
+      <g id="Grupo_215" data-name="Grupo 215" transform="translate(58.813 37.248)">
+        <g id="Grupo_214" data-name="Grupo 214">
+          <path id="Trazado_2221" data-name="Trazado 2221" d="M31.257,18.555a1.96,1.96,0,1,0,1.96,1.96A1.961,1.961,0,0,0,31.257,18.555Z" transform="translate(-29.297 -18.555)" fill="#efa00b"/>
+        </g>
+      </g>
+      <g id="Grupo_217" data-name="Grupo 217">
+        <g id="Grupo_216" data-name="Grupo 216">
+          <path id="Trazado_2222" data-name="Trazado 2222" d="M98.076,86.988,71.909,60.82a38.857,38.857,0,0,0,6.508-21.612A39.209,39.209,0,1,0,39.209,78.417,38.859,38.859,0,0,0,60.82,71.909l7.233,7.233,0,0L86.988,98.076A7.841,7.841,0,1,0,98.076,86.988ZM59.9,67.777h0a35.323,35.323,0,1,1,7.88-7.88A35.459,35.459,0,0,1,59.9,67.777Zm4.113,1.777a39.34,39.34,0,0,0,5.544-5.544l5.562,5.562a47.586,47.586,0,0,1-5.544,5.544ZM95.3,95.3a3.918,3.918,0,0,1-5.544,0L72.353,77.9A51.516,51.516,0,0,0,77.9,72.353L95.3,89.761a3.917,3.917,0,0,1,0,5.543Z" fill="#efa00b"/>
+        </g>
+      </g>
+      <g id="Grupo_219" data-name="Grupo 219" transform="translate(7.842 7.842)">
+        <g id="Grupo_218" data-name="Grupo 218">
+          <path id="Trazado_2223" data-name="Trazado 2223" d="M35.273,3.906A31.367,31.367,0,1,0,66.64,35.273,31.4,31.4,0,0,0,35.273,3.906Zm0,58.813A27.446,27.446,0,1,1,62.719,35.273,27.477,27.477,0,0,1,35.273,62.719Z" transform="translate(-3.906 -3.906)" fill="#efa00b"/>
+        </g>
+      </g>
+      <g id="Grupo_221" data-name="Grupo 221" transform="translate(37.248 15.683)">
+        <g id="Grupo_220" data-name="Grupo 220">
+          <path id="Trazado_2224" data-name="Trazado 2224" d="M42.485,22.922a23.562,23.562,0,0,0-21.97-15.11,1.96,1.96,0,1,0,0,3.921,19.738,19.738,0,0,1,18.31,12.6,1.96,1.96,0,1,0,3.66-1.406Z" transform="translate(-18.555 -7.813)" fill="#efa00b"/>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>
