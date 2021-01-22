@@ -2,9 +2,9 @@
   <h1>Esta es la vista de descargas</h1>
 </template>
 
-<script>
+<script lang="ts">
 export default {
-  name: "Descargas"
+  name: "Downloads"
 }
 </script>
 

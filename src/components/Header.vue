@@ -13,30 +13,12 @@
       ></v-img>
       <v-spacer></v-spacer>
       <v-btn
-          :to="{name: 'Home'}"
+          v-for="link in links"
+          :key="link"
+          :to="{name: link[1]}"
           text
           color="white"
-      >Inicio</v-btn>
-      <v-btn
-          :to="{name: 'Observations'}"
-          text
-          color="white"
-      >Observaciones</v-btn>
-      <v-btn
-          :to="{name: 'Statistics'}"
-          text
-          color="white"
-      >Estadistícas</v-btn>
-      <v-btn
-          :to="{name: 'Downloads'}"
-          text
-          color="white"
-      >Descargas</v-btn>
-      <v-btn
-          :to="{name: 'Contact'}"
-          text
-          color="white"
-      >contacto</v-btn>
+      >{{link[0]}}</v-btn>
       <v-spacer></v-spacer>
       <v-btn
           :to="{name: 'Login'}"
@@ -48,16 +30,16 @@
   </v-container>
 </template>
 
-<script>
+<script lang="ts">
 export default {
-  name: "NavBar",
+  name: "Header",
   data: ()  => ({
     links: [
-      'Inicio',
-      'Observaciones',
-      'Estadistícas',
-      'Descargas',
-      'Contacto',
+      ['Inicio','Home'],
+      ['Observaciones', 'Observations'],
+      ['Estadistícas', 'Statistics'],
+      ['Descargas', 'Downloads'],
+      ['Contacto', 'Contact'],
     ],
   }),
 }
