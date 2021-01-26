@@ -7,11 +7,7 @@
             :items="desserts"
             :items-per-page="5"
             class="elevation-1"
-        >
-          <v-data-footer
-
-          ></v-data-footer>
-        </v-data-table>
+        ></v-data-table>
       </v-col>
     </v-row>
   </v-container>
@@ -23,16 +19,16 @@ export default {
   data: () => ({
     headers: [
       {
-        text: 'Dessert (100g serving)',
+        text: 'Institución de Salud',
         align: 'start',
         sortable: false,
         value: 'name',
       },
-      { text: 'Calories', value: 'calories' },
-      { text: 'Fat (g)', value: 'fat' },
-      { text: 'Carbs (g)', value: 'carbs' },
-      { text: 'Protein (g)', value: 'protein' },
-      { text: 'Iron (%)', value: 'iron' },
+      { text: 'Fecha de observación', value: 'calories' },
+      { text: 'Fecha de ocurrencia', value: 'fat' },
+      { text: 'Hora de ocurrencia', value: 'carbs' },
+      { text: 'Tipo de observación', value: 'protein' },
+      { text: 'Tipo de estudiante', value: 'iron' },
     ],
   }),
 }

@@ -8,8 +8,8 @@
       </v-col>
       <v-col cols="2">
         <v-row>
-          <v-col cols="5"></v-col>
-          <v-col cols="7" align-self="end">
+          <v-col cols="4"></v-col>
+          <v-col cols="8" align-self="end">
             <v-btn depressed text>
               Imprimir
               <v-img

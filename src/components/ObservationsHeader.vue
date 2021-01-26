@@ -34,6 +34,37 @@
             dense
         ></v-combobox>
       </v-col>
+      <v-col cols="3">
+        <v-menu
+          ref="menu"
+          v-model="menu"
+          :close-on-content-click="false"
+          transition="scale-transition"
+          offset-y
+          min-width="auto"
+        >
+          <template v-slot:activator="{ on, attrs }">
+            <v-text-field
+              color="grey lighten-1"
+              v-model="dateRangeText"
+              label="Fecha de inicio y fecha de fin"
+              prepend-icon="mdi-calendar"
+              readonly
+              v-bind="attrs"
+              v-on="on"
+            ></v-text-field>
+          </template>
+          <v-date-picker
+            ref="picker"
+            v-model="dates"
+            color="green"
+            header-color="blue"
+            :max="new Date().toISOString().substr(0, 10)"
+            range
+            @change="save"
+          ></v-date-picker>
+        </v-menu>
+      </v-col>
     </v-row>
   </v-container>
 </template>
@@ -42,8 +73,24 @@
 export default {
   name: "ObservationsHeader",
   data: () => ({
-
+    dates: [new Date().toISOString().substr(0, 10), new Date().toISOString().substr(0, 10)],
+    menu: false,
   }),
+  computed: {
+    dateRangeText () {
+      return this.dates.join(' ~ ')
+    },
+  },
+  watch: {
+    menu (val) {
+      val && setTimeout(() => (this.$refs.picker.activePicker = 'YEAR'))
+    },
+  },
+  methods: {
+    save (dates) {
+      this.$refs.menu.save(dates)
+    },
+  },
 }
 </script>
 
