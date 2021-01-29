@@ -1,13 +1,21 @@
 <template>
-  <v-container>
+  <v-container fluid>
     <v-row>
       <v-col cols="12">
         <v-data-table
-            :headers="headers"
-            :items="desserts"
-            :items-per-page="5"
-            class="elevation-1"
-        ></v-data-table>
+          :headers="headers"
+          :items="observations"
+          hide-default-footer
+        >
+          <template v-slot:item.observationType="{item}">
+            <v-chip
+              :color="getColor(item.observationType)"
+              dark
+            >
+              {{item.observationType}}
+            </v-chip>
+          </template>
+        </v-data-table>
       </v-col>
     </v-row>
   </v-container>
@@ -24,13 +32,21 @@ export default {
         sortable: false,
         value: 'name',
       },
-      { text: 'Fecha de observación', value: 'calories' },
-      { text: 'Fecha de ocurrencia', value: 'fat' },
-      { text: 'Hora de ocurrencia', value: 'carbs' },
-      { text: 'Tipo de observación', value: 'protein' },
-      { text: 'Tipo de estudiante', value: 'iron' },
+      { text: 'Fecha de observación'},
+      { text: 'Fecha de ocurrencia'},
+      { text: 'Hora de ocurrencia'},
+      { text: 'Tipo de observación'},
+      { text: 'Tipo de estudiante'},
     ],
+    observations:[],
   }),
+  methods: {
+    getColor (observationType:string) {
+      if (observationType == "Positiva") return '#66BB6A'
+      else if (observationType == "Observación") return '#FFF176'
+      else return '#EF5350'
+    }
+  }
 }
 </script>
 

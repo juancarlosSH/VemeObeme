@@ -3,7 +3,7 @@
     <v-row>
       <v-col cols="2">
         <v-combobox
-            color="grey lighten-1"
+            color="#0288D1"
             label="Institución de salud"
             clearable
             filled
@@ -14,7 +14,7 @@
       </v-col>
       <v-col cols="2">
         <v-combobox
-            color="grey lighten-1"
+            color="#0288D1"
             label="Tipo de estudiante"
             clearable
             filled
@@ -25,7 +25,7 @@
       </v-col>
       <v-col cols="2">
         <v-combobox
-            color="grey lighten-1"
+            color="#0288D1"
             label="Universidad"
             clearable
             filled
@@ -45,7 +45,7 @@
         >
           <template v-slot:activator="{ on, attrs }">
             <v-text-field
-              color="grey lighten-1"
+              color="#0288D1"
               v-model="dateRangeText"
               label="Fecha de inicio y fecha de fin"
               prepend-icon="mdi-calendar"
@@ -57,13 +57,22 @@
           <v-date-picker
             ref="picker"
             v-model="dates"
-            color="green"
-            header-color="blue"
+            color="#66BB6A"
+            header-color="#0288D1"
             :max="new Date().toISOString().substr(0, 10)"
             range
             @change="save"
           ></v-date-picker>
         </v-menu>
+      </v-col>
+      <v-col cols="2">
+        <v-btn
+          color="#66BB6A"
+          text
+          outlined
+        >
+          Consultar
+        </v-btn>
       </v-col>
     </v-row>
   </v-container>

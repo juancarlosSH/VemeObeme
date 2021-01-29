@@ -32,10 +32,10 @@
       <ObservationsHeader></ObservationsHeader>
     </v-row>
     <v-row>
-      <v-col cols="8">
+      <v-col cols="10">
         <ObservationsTable></ObservationsTable>
       </v-col>
-      <v-col cols="4">
+      <v-col cols="2">
         <ObservationsInformation></ObservationsInformation>
       </v-col>
     </v-row>
