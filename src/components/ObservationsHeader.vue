@@ -10,6 +10,7 @@
             hide-selected
             outlined
             dense
+            :items="healUnits"
         ></v-combobox>
       </v-col>
       <v-col cols="2">
@@ -21,6 +22,7 @@
             hide-selected
             outlined
             dense
+            :items="studentsType"
         ></v-combobox>
       </v-col>
       <v-col cols="2">
@@ -32,6 +34,7 @@
             hide-selected
             outlined
             dense
+            :items="universities"
         ></v-combobox>
       </v-col>
       <v-col cols="3">
@@ -84,7 +87,13 @@ export default {
   data: () => ({
     dates: [new Date().toISOString().substr(0, 10), new Date().toISOString().substr(0, 10)],
     menu: false,
+    healUnits: [],
+    studentsType: [],
+    universities: [],
   }),
+  created() {
+    this.getHealthUnits();
+  },
   computed: {
     dateRangeText () {
       return this.dates.join(' ~ ')
@@ -98,6 +107,39 @@ export default {
   methods: {
     save (dates) {
       this.$refs.menu.save(dates)
+    },
+    async getHealthUnits(){
+      try {
+        const healthUnits = await this.axios.get('unidades');
+        await healthUnits.data.forEach(element => {
+          let item: string = element.nombre.rendered;
+          this.healUnits.push(item);
+        })
+      }catch (error: string){
+        console.log(error);
+      }
+    },
+    async getStudentsType(){
+      try {
+        const studentsType = await this.axios.get('tiposestancia');
+        await studentsType.data.forEach(element => {
+          let item: string = element.nombre.rendered;
+          this.studentsType.push(item);
+        })
+      }catch (error: string){
+        console.log(error);
+      }
+    },
+    async getUniversities(){
+      try {
+        const universities = await this.axios.get('universidades/1');
+        await universities.data.forEach(element => {
+          let item: string = element.nombre.rendered;
+          this.universities.push(item);
+        })
+      }catch (error: string){
+        console.log(error);
+      }
     },
   },
 }
