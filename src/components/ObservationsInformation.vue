@@ -21,7 +21,7 @@
         >
           <div class="text-center text--primary">{{observationStudents}}</div>
           <div class="text-center text--primary">
-            Total de estudiantes registrados
+            Total de estudiantes que han realizado observaciones
           </div>
         </v-card>
       </v-col>
@@ -34,7 +34,7 @@
         >
           <div class="text-center text--primary">{{totalObservations}}</div>
           <div class="text-center text--primary">
-            Total de estudiantes registrados
+            Total de observaciones
           </div>
         </v-card>
       </v-col>
@@ -47,7 +47,7 @@
         >
           <div class="text-center text--primary">{{positiveObservations}}</div>
           <div class="text-center text--primary">
-            Total de estudiantes registrados
+            Observaciones positivas
           </div>
         </v-card>
       </v-col>
@@ -60,7 +60,7 @@
         >
           <div class="text-center text--primary">{{supervisoryObservations}}</div>
           <div class="text-center text--primary">
-            Total de estudiantes registrados
+            Observaciones de supervisión
           </div>
         </v-card>
       </v-col>
@@ -73,7 +73,7 @@
         >
           <div class="text-center text--primary">{{rightsObservations}}</div>
           <div class="text-center text--primary">
-            Total de estudiantes registrados
+            Observaciones de respeto a derechos
           </div>
         </v-card>
       </v-col>

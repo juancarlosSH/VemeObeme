@@ -93,6 +93,8 @@ export default {
   }),
   created() {
     this.getHealthUnits();
+    this.getStudentsType();
+    this.getUniversities();
   },
   computed: {
     dateRangeText () {

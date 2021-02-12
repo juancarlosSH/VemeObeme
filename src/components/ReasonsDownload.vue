@@ -66,15 +66,15 @@
       <v-col cols="4">
         <v-row>
           <v-col cols="4"></v-col>
-          <v-col cols="4">
+          <v-col cols="5">
             <v-img
                 lazy-src="../assets/anonimato.png"
-                max-width="125"
-                max-height="125"
+                max-width="140"
+                max-height="140"
                 src="../assets/anonimato.png"
             ></v-img>
           </v-col>
-          <v-col cols="4"></v-col>
+          <v-col cols="3"></v-col>
         </v-row>
         <v-row>
           <v-col align-self="center">

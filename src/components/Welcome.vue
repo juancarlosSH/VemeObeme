@@ -14,8 +14,8 @@
           <v-col cols="4">
             <v-img
                 lazy-src="../assets/observacionpositiva.svg"
-                max-width="125"
-                max-height="125"
+                max-width="110"
+                max-height="110"
                 src="../assets/observacionpositiva.svg"
             ></v-img>
           </v-col>
