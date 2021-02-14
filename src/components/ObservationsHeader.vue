@@ -82,9 +82,11 @@
 </template>
 
 <script lang="ts">
+import {server} from '@/utils/request';
+
 export default {
   name: "ObservationsHeader",
-  data: () => ({
+  data: (): any => ({
     dates: [new Date().toISOString().substr(0, 10), new Date().toISOString().substr(0, 10)],
     menu: false,
     healUnits: [],
@@ -97,49 +99,49 @@ export default {
     this.getUniversities();
   },
   computed: {
-    dateRangeText () {
-      return this.dates.join(' ~ ')
+    dateRangeText (): any {
+      return this.dates.join(' ~ ');
     },
   },
   watch: {
-    menu (val) {
-      val && setTimeout(() => (this.$refs.picker.activePicker = 'YEAR'))
+    menu (val: any) {
+      val && setTimeout(() => (this.$refs.picker.activePicker = 'YEAR'));
     },
   },
   methods: {
-    save (dates) {
-      this.$refs.menu.save(dates)
+    save (dates: any) {
+      this.$refs.menu.save(dates);
     },
-    async getHealthUnits(){
+    async getHealthUnits() {
       try {
-        const healthUnits = await this.axios.get('unidades');
+        const healthUnits = await server.get('instituciones/');
         await healthUnits.data.forEach(element => {
-          let item: string = element.nombre.rendered;
+          let item: string = element.nombre;
           this.healUnits.push(item);
-        })
-      }catch (error: string){
+        });
+      }catch (error){
         console.log(error);
       }
     },
-    async getStudentsType(){
+    async getStudentsType() {
       try {
-        const studentsType = await this.axios.get('tiposestancia');
+        const studentsType = await server.get('tiposestancia/');
         await studentsType.data.forEach(element => {
-          let item: string = element.nombre.rendered;
+          let item: string = element.nombre;
           this.studentsType.push(item);
         })
-      }catch (error: string){
+      }catch (error){
         console.log(error);
       }
     },
-    async getUniversities(){
+    async getUniversities() {
       try {
-        const universities = await this.axios.get('universidades/1');
+        const universities = await server.get('universidades/');
         await universities.data.forEach(element => {
-          let item: string = element.nombre.rendered;
+          let item: string = element.nombre;
           this.universities.push(item);
-        })
-      }catch (error: string){
+        });
+      }catch (error){
         console.log(error);
       }
     },

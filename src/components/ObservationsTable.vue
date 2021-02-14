@@ -22,16 +22,13 @@
 </template>
 
 <script lang="ts">
+import {server} from '@/utils/request';
+
 export default {
   name: "ObservationsTable",
   data: () => ({
     headers: [
-      {
-        text: 'Institución de Salud',
-        align: 'start',
-        sortable: false,
-        value: 'name',
-      },
+      { text: 'Institución de Salud'},
       { text: 'Fecha de observación'},
       { text: 'Fecha de ocurrencia'},
       { text: 'Hora de ocurrencia'},
@@ -40,12 +37,31 @@ export default {
     ],
     observations:[],
   }),
+  created() {
+    this.getObservations();
+  },
   methods: {
     getColor (observationType:string) {
       if (observationType == "Positiva") return '#66BB6A'
       else if (observationType == "Observación") return '#FFF176'
       else return '#EF5350'
-    }
+    },
+    async getObservations(){
+      try {
+        const observations = await server.get('obemeapi/v1/observaciones/');
+        if(observations.data.length !== 0){
+          console.log('Tienes observaciones');
+          /*await observations.data.forEach(element => {
+            let item = {};
+            this.observations.push(item);
+          })*/
+        }else{
+          console.log('No tienes observaciones');
+        }
+      }catch (error){
+        console.log(error);
+      }
+    },
   }
 }
 </script>
