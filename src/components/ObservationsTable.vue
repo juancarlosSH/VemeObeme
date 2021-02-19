@@ -29,9 +29,9 @@ export default {
   data: () => ({
     headers: [
       { text: 'Institución de Salud'},
+      { text: 'Fecha de registro'},
       { text: 'Fecha de observación'},
-      { text: 'Fecha de ocurrencia'},
-      { text: 'Hora de ocurrencia'},
+      { text: 'Hora de observación'},
       { text: 'Tipo de observación'},
       { text: 'Tipo de estudiante'},
     ],
@@ -48,7 +48,7 @@ export default {
     },
     async getObservations(){
       try {
-        const observations = await server.get('obemeapi/v1/observaciones/');
+        const observations = await server.get('observaciones/');
         if(observations.data.length !== 0){
           console.log('Tienes observaciones');
           /*await observations.data.forEach(element => {

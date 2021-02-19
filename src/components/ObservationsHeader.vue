@@ -50,7 +50,7 @@
             <v-text-field
               color="#0288D1"
               v-model="dateRangeText"
-              label="Fecha de inicio y fecha de fin"
+              label="Rango de fechas"
               prepend-icon="mdi-calendar"
               readonly
               v-bind="attrs"
@@ -86,6 +86,7 @@ import {server} from '@/utils/request';
 
 export default {
   name: "ObservationsHeader",
+
   data: (): any => ({
     dates: [new Date().toISOString().substr(0, 10), new Date().toISOString().substr(0, 10)],
     menu: false,
