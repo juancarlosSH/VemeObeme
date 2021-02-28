@@ -20,12 +20,12 @@
           color="white"
       >{{link[0]}}</v-btn>
       <v-spacer></v-spacer>
-      <v-btn
+<!--      <v-btn
           :to="{name: 'Login'}"
           color="white"
           outlined
           rounded
-      >Acceso Administrador</v-btn>
+      >Acceso Administrador</v-btn>-->
     </v-app-bar>
   </v-container>
 </template>
@@ -37,9 +37,9 @@ export default {
     links: [
       ['Inicio','Home'],
       ['Observaciones', 'Observations'],
-      ['Estadistícas', 'Statistics'],
+      // ['Estadistícas', 'Statistics'],
       ['Descargas', 'Downloads'],
-      ['Contacto', 'Contact'],
+      // ['Contacto', 'Contact'],
     ],
   }),
 }

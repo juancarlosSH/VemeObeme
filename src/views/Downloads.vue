@@ -3,7 +3,7 @@
     <v-row>
       <v-col cols="12">
         <div class="text-md-h5 text-center">
-          Descarga Veme-OBEME para tu dispositivo móvil
+          Descarga Veme-Obeme para tu dispositivo móvil
         </div>
       </v-col>
     </v-row>

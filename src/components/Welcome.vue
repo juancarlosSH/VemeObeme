@@ -14,8 +14,8 @@
           <v-col cols="4">
             <v-img
                 lazy-src="../assets/observacionpositiva.svg"
-                max-width="110"
-                max-height="110"
+                max-width="130"
+                max-height="130"
                 src="../assets/observacionpositiva.svg"
             ></v-img>
           </v-col>
@@ -40,8 +40,8 @@
           <v-col cols="4">
             <v-img
                 lazy-src="../assets/observacionsupervision.svg"
-                max-width="125"
-                max-height="125"
+                max-width="150"
+                max-height="150"
                 src="../assets/observacionsupervision.svg"
             ></v-img>
           </v-col>
@@ -67,8 +67,8 @@
           <v-col cols="4">
             <v-img
                 lazy-src="../assets/observacionderechos.svg"
-                max-width="125"
-                max-height="125"
+                max-width="150"
+                max-height="150"
                 src="../assets/observacionderechos.svg"
             ></v-img>
           </v-col>
