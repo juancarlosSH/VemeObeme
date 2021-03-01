@@ -2,96 +2,73 @@
   <v-container fluid>
     <v-row>
       <v-col cols="12">
-        <div class="text-md-h4 text-center">
+        <div class="text-md-h3 text-center">
           Los Datos que recoletamos
         </div>
       </v-col>
     </v-row>
     <v-row>
-      <v-col cols="4" align-self="center">
-        <v-row>
-          <v-col cols="4"></v-col>
-          <v-col cols="4">
-            <v-img
-                lazy-src="../assets/observacionpositiva.svg"
-                max-width="130"
-                max-height="130"
-                src="../assets/observacionpositiva.svg"
-            ></v-img>
-          </v-col>
-          <v-col cols="4"></v-col>
-        </v-row>
-        <v-row>
-          <v-col align-self="center">
-            <div class="text-center">
-              <p class="text-md-body-2">
-                Observación positiva
-              </p>
-              <p class="text-md-body-2">
-                Fortalezas del proceso educativo
-              </p>
-            </div>
-          </v-col>
-        </v-row>
+      <v-col cols="2"></v-col>
+      <v-col cols="2">
+        <v-img
+            lazy-src="../assets/observacionpositiva.svg"
+            max-width="150"
+            max-height="150"
+            src="../assets/observacionpositiva.svg"></v-img>
       </v-col>
-      <v-col cols="4" align-self="center">
-        <v-row>
-          <v-col cols="4"></v-col>
-          <v-col cols="4">
-            <v-img
-                lazy-src="../assets/observacionsupervision.svg"
-                max-width="150"
-                max-height="150"
-                src="../assets/observacionsupervision.svg"
-            ></v-img>
-          </v-col>
-          <v-col cols="4"></v-col>
-        </v-row>
-        <v-row>
-          <v-col align-self="center">
-            <div class="text-center">
-              <p class="text-md-body-2">
-                Observación de ausencia de supervisión
-              </p>
-              <p class="text-md-body-2">
-                Devilidades del proceso relacionadas con la supervisión
-                de estudiantes en su práctica clínica
-              </p>
-            </div>
-          </v-col>
-        </v-row>
+      <v-col cols="1"></v-col>
+      <v-col cols="2">
+        <v-img
+            lazy-src="../assets/observacionsupervision.svg"
+            max-width="150"
+            max-height="150"
+            src="../assets/observacionsupervision.svg"></v-img>
       </v-col>
-      <v-col cols="4">
-        <v-row>
-          <v-col cols="4"></v-col>
-          <v-col cols="4">
-            <v-img
-                lazy-src="../assets/observacionderechos.svg"
-                max-width="150"
-                max-height="150"
-                src="../assets/observacionderechos.svg"
-            ></v-img>
-          </v-col>
-          <v-col cols="4"></v-col>
-        </v-row>
-        <v-row>
-          <v-col align-self="center">
-            <div class="text-center">
-              <p class="text-md-body-2">
-                Observación de respeto a derechos
-              </p>
-              <p class="text-md-body-2">
-                Debilidades del proceso relacionadas con el trato
-                digno y libre de violencia
-              </p>
-            </div>
-          </v-col>
-        </v-row>
+      <v-col cols="1"></v-col>
+      <v-col cols="2">
+        <v-img
+            lazy-src="../assets/observacionderechos.svg"
+            max-width="150"
+            max-height="150"
+            src="../assets/observacionderechos.svg"></v-img>
       </v-col>
+      <v-col cols="2"></v-col>
+    </v-row>
+    <v-row>
+      <v-col cols="2"></v-col>
+      <v-col cols="2">
+        <div class="text-md-body-1">
+          Observación positiva
+        </div>
+        <div class="text-md-body-1">
+          Fortalezas del proceso educativo
+        </div>
+      </v-col>
+      <v-col cols="1"></v-col>
+      <v-col cols="2">
+        <div class="text-md-body-1">
+          Observación de ausencia de supervisión
+        </div>
+        <div class="text-md-body-1">
+          Devilidades del proceso relacionadas con la supervisión
+          de estudiantes en su práctica clínica
+        </div>
+      </v-col>
+      <v-col cols="1"></v-col>
+      <v-col cols="2">
+        <div class="text-md-body-1">
+          Observación de respeto a derechos
+        </div>
+        <div class="text-md-body-1">
+          Debilidades del proceso relacionadas con el trato
+          digno y libre de violencia
+        </div>
+      </v-col>
+      <v-col cols="2"></v-col>
     </v-row>
     <v-row>
       <v-col cols="12">
-        <div class="text-md-h4 text-center">
+        <div class="text-md-h3 text-center">
           Información a la mano
         </div>
       </v-col>
@@ -111,7 +88,7 @@
         </v-row>
       </v-col>
       <v-col cols="8">
-        <v-card-text class="text--primary">
+        <v-card-text class="text-md-body-1">
           Registro de observaciones en intervalos de tiempo.
           Visualización general o especifica, filtrada por
           universidad o institución de salud.
@@ -133,7 +110,7 @@
         </v-row>
       </v-col>
       <v-col cols="8">
-        <v-card-text class="text--primary">
+        <v-card-text class="text-md-body-1">
           Consulta estadísticas basadas en el registro de
           observaciones.
           Filtrar a través de datos demográficos como edad
