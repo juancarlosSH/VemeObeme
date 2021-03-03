@@ -5,17 +5,7 @@
         <v-data-table
           :headers="headers"
           :items="observations"
-          hide-default-footer
-        >
-          <template v-slot:item.observationType="{item}">
-            <v-chip
-              :color="getColor(item.observationType)"
-              dark
-            >
-              {{item.observationType}}
-            </v-chip>
-          </template>
-        </v-data-table>
+        ></v-data-table>
       </v-col>
     </v-row>
   </v-container>
@@ -26,35 +16,37 @@ import {server} from '@/utils/request';
 
 export default {
   name: "ObservationsTable",
-  data: () => ({
-    headers: [
-      { text: 'Institución de Salud'},
-      { text: 'Fecha de registro'},
-      { text: 'Fecha de observación'},
-      { text: 'Hora de observación'},
-      { text: 'Tipo de observación'},
-      { text: 'Tipo de estudiante'},
-    ],
-    observations:[],
-  }),
+  data () {
+    return {
+      headers: [
+        { text: 'Institucion de Salud', value: 'healthInstitution'},
+        { text: 'Fecha de registro', value: 'registrationDate' },
+        { text: 'Fecha de observación', value: 'observationDate' },
+        { text: 'Hora de observación', value: 'observationTime' },
+        { text: 'Tipo de observación', value: 'typeObservation' },
+        { text: 'Tipo de estudiante', value: 'typeStudent'},
+      ],
+      observations: [],
+    }
+  },
   created() {
     this.getObservations();
   },
   methods: {
-    getColor (observationType:string) {
-      if (observationType == "Positiva") return '#66BB6A'
-      else if (observationType == "Observación") return '#FFF176'
-      else return '#EF5350'
-    },
     async getObservations(){
       try {
         const observations = await server.get('observaciones/');
         if(observations.data.length !== 0){
-          console.log('Tienes observaciones');
-          /*await observations.data.forEach(element => {
+          await observations.data.forEach(element => {
             let item = {};
+            item.healthInstitution = element.institucionSalud;
+            item.registrationDate = element.fechaRegistro;
+            item.observationDate = element.fechaObservacion;
+            item.observationTime = element.horaObservacion;
+            item.typeObservation = element.tipoObservacion;
+            item.typeStudent = element.tipoEstudiante;
             this.observations.push(item);
-          })*/
+          })
         }else{
           console.log('No tienes observaciones');
         }

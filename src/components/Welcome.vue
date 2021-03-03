@@ -3,7 +3,7 @@
     <v-row>
       <v-col cols="12">
         <div class="text-md-h3 text-center">
-          Los Datos que recoletamos
+          Los datos que recolectamos
         </div>
       </v-col>
     </v-row>
@@ -50,7 +50,7 @@
           Observación de ausencia de supervisión
         </div>
         <div class="text-md-body-1">
-          Devilidades del proceso relacionadas con la supervisión
+          Debilidades del proceso relacionadas con la supervisión
           de estudiantes en su práctica clínica
         </div>
       </v-col>
@@ -90,7 +90,7 @@
       <v-col cols="8">
         <v-card-text class="text-md-body-1">
           Registro de observaciones en intervalos de tiempo.
-          Visualización general o especifica, filtrada por
+          Visualización general o específica, filtrada por
           universidad o institución de salud.
         </v-card-text>
       </v-col>

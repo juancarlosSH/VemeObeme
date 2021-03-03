@@ -60,7 +60,7 @@
         <v-btn
             text
             large
-            href="https://play.google.com/store">
+            href="https://www.apple.com/mx/app-store/">
           <v-img
               lazy-src="../assets/appstore.png"
               max-width="150"

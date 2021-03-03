@@ -64,7 +64,7 @@
         <div class="text-md-body-1">
           Tus registros de observaciones
           son anónimos, no temas
-          represalías
+          represalias
         </div>
       </v-col>
       <v-col cols="2"></v-col>
