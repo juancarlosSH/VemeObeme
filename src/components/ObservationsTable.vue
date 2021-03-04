@@ -15,7 +15,9 @@
 import {server} from '@/utils/request';
 
 export default {
+
   name: "ObservationsTable",
+
   data () {
     return {
       headers: [
@@ -29,9 +31,11 @@ export default {
       observations: [],
     }
   },
+
   created() {
     this.getObservations();
   },
+
   methods: {
     async getObservations(){
       try {
@@ -40,10 +44,10 @@ export default {
           await observations.data.forEach(element => {
             let item = {};
             item.healthInstitution = element.institucionSalud;
-            item.registrationDate = element.fechaRegistro;
-            item.observationDate = element.fechaObservacion;
-            item.observationTime = element.horaObservacion;
-            item.typeObservation = element.tipoObservacion;
+            item.registrationDate = this.orderDate(this.separateString(element.fechaRegistro, 'T', 0));
+            item.observationDate = this.orderDate(this.separateString(element.fechaObservacion, 'T', 0));
+            item.observationTime = this.separateString(this.separateString(element.horaObservacion,'T', 1), '.', 0);
+            item.typeObservation = this.observationTypeFormat(element.tipoObservacion);
             item.typeStudent = element.tipoEstudiante;
             this.observations.push(item);
           })
@@ -54,6 +58,39 @@ export default {
         console.log(error);
       }
     },
+
+    separateString(fullDate: string, separator: string, returnPosition: number): string {
+      var datePortion = fullDate.split(separator);
+      return datePortion[returnPosition];
+    },
+
+    orderDate(date: string): string{
+      var auxiliarDate = date.split('-');
+      console.log(auxiliarDate);
+      var orderedDate = '';
+      auxiliarDate.forEach(element => {
+        if(orderedDate.length !== 8){
+          orderedDate = '-'+element+orderedDate;
+        }else{
+          orderedDate = element+orderedDate;
+        }
+      });
+      return orderedDate;
+    },
+
+    observationTypeFormat(typeObservation:string ): string {
+      var finalType = '';
+      if (typeObservation === 'ObservacionPositiva') {
+        finalType = 'Positiva';
+      }else{
+        if (typeObservation === 'ObservacionSupervision') {
+          finalType = 'Supervisión';
+        }else{
+          finalType = 'Derechos';
+        }
+      }
+      return finalType;
+    }
   }
 }
 </script>
