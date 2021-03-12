@@ -4,7 +4,7 @@
       <v-img lazy-src="@/assets/icono.svg" max-height="52" max-width="52" src="@/assets/icono.svg"
       ></v-img>
       <v-spacer></v-spacer>
-      <v-btn v-for="(link) in links" :key="link" :to="{name: link.route}" text color="white"
+      <v-btn v-for="(link, index) in links" :key="index" :to="{name: link.route}" text color="white"
       >{{link.name}}</v-btn>
       <v-spacer></v-spacer>
       <!--<v-btn :to="{name: 'Login'}" color="white" outlined rounded
