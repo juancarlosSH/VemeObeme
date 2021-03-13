@@ -21,7 +21,7 @@
         </v-col>
         <v-col cols="4" class="d-flex flex-row-reverse">
           <v-img
-            lazy-src="../assets/InicioCel.png" max-height="400" max-width="400" src="../assets/InicioCel.png"
+            lazy-src="../assets/InicioCel.png" max-width="400" max-height="400" src="../assets/InicioCel.png"
           ></v-img>
         </v-col>
       </v-row>

@@ -1,45 +1,36 @@
 <template>
-  <v-container fluid>
+  <div>
     <v-row>
-      <v-col cols="10">
-        <div class="text-md-h4 text-start">
-          Observaciones
-        </div>
+      <v-col cols="8">
+        <h1 class="font-weight-medium text-md-h4 pa-5">Observaciones</h1>
       </v-col>
-      <v-col cols="2">
-        <v-row>
-          <v-col cols="4"></v-col>
-          <v-col cols="8" align-self="end">
-            <v-btn depressed text>
-              Imprimir
-              <v-img
-                  lazy-src="../assets/pdf.svg"
-                  max-height="20"
-                  max-width="20"
-                  src="../assets/pdf.svg"
-              ></v-img>
-            </v-btn>
-          </v-col>
-        </v-row>
+      <v-col cols="4" class="d-flex justify-end align-center pr-10">
+        <v-btn color="green lighten-1">CSV
+          <v-img
+            lazy-src="@/assets/download.png" max-width="32" max-height="32" src="@/assets/download.png"
+          ></v-img>
+        </v-btn>
       </v-col>
     </v-row>
     <v-row>
       <v-col cols="12">
-        <div class="d-print-block pa-1 grey lighten-1 accent-4"></div>
+        <div class="d-print-block pa-1 grey lighten-1"></div>
       </v-col>
     </v-row>
     <v-row>
-      <ObservationsHeader></ObservationsHeader>
+      <v-col cols="12">
+        <ObservationsHeader></ObservationsHeader>
+      </v-col>
     </v-row>
     <v-row>
-      <v-col cols="10">
+      <v-col cols="9">
         <ObservationsTable></ObservationsTable>
       </v-col>
-      <v-col cols="2">
+      <v-col cols="3">
         <ObservationsInformation></ObservationsInformation>
       </v-col>
     </v-row>
-  </v-container>
+  </div>
 </template>
 
 <script lang="ts">
@@ -50,6 +41,7 @@ import ObservationsTable from "@/components/ObservationsTable.vue";
 
 export default Vue.extend({
   name: 'Observations',
+
   components: {
     ObservationsHeader,
     ObservationsTable,
