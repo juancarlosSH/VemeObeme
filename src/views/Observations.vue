@@ -14,7 +14,7 @@
     </v-row>
     <v-row>
       <v-col cols="12">
-        <div class="d-print-block pa-1 grey lighten-1"></div>
+        <v-divider></v-divider>
       </v-col>
     </v-row>
     <v-row>

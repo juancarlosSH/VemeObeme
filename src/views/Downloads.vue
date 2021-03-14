@@ -23,19 +23,19 @@
       <v-col cols="2"></v-col>
       <v-col cols="2">
         <v-img
-            lazy-src="../assets/android.png"
-            max-width="200"
-            max-height="400"
-            src="../assets/android.png"
+          lazy-src="../assets/android.png"
+          max-width="200"
+          max-height="400"
+          src="../assets/android.png"
         ></v-img>
       </v-col>
       <v-col cols="4"></v-col>
       <v-col cols="2">
         <v-img
-            lazy-src="../assets/iphone.png"
-            max-width="200"
-            max-height="400"
-            src="../assets/iphone.png"
+          lazy-src="../assets/iphone.png"
+          max-width="200"
+          max-height="400"
+          src="../assets/iphone.png"
         ></v-img>
       </v-col>
       <v-col cols="2"></v-col>
@@ -43,29 +43,23 @@
     <v-row>
       <v-col cols="2"></v-col>
       <v-col cols="2">
-        <v-btn
-            text
-            large
-            href="https://play.google.com/store">
+        <v-btn text large href="https://play.google.com/store">
           <v-img
-              lazy-src="../assets/playstore.png"
-              max-width="150"
-              max-height="100"
-              src="../assets/playstore.png"
+            lazy-src="../assets/playstore.png"
+            max-width="150"
+            max-height="100"
+            src="../assets/playstore.png"
           ></v-img>
         </v-btn>
       </v-col>
       <v-col cols="4"></v-col>
       <v-col cols="2">
-        <v-btn
-            text
-            large
-            href="https://www.apple.com/mx/app-store/">
+        <v-btn text large href="https://www.apple.com/mx/app-store/">
           <v-img
-              lazy-src="../assets/appstore.png"
-              max-width="150"
-              max-height="100"
-              src="../assets/appstore.png"
+            lazy-src="../assets/appstore.png"
+            max-width="150"
+            max-height="100"
+            src="../assets/appstore.png"
           ></v-img>
         </v-btn>
       </v-col>
@@ -78,17 +72,13 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue';
+import Vue from "vue";
 import ReasonsDownload from "@/components/ReasonsDownload.vue";
 
 export default Vue.extend({
-  name: 'Downloads',
+  name: "Downloads",
   components: {
     ReasonsDownload,
   },
 });
 </script>
-
-<style scoped>
-
-</style>

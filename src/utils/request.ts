@@ -1,5 +1,5 @@
-import axios from 'axios';
+import axios from "axios";
 
 export const server = axios.create({
-    baseURL: process.env.VUE_APP_VEME_API,
+  baseURL: process.env.VUE_APP_VEME_API,
 });

@@ -1,155 +1,125 @@
 <template>
-  <v-container fluid>
-    <v-row>
+  <div>
+    <v-row class="d-flex justify-start align-center px-5">
       <v-col cols="2">
-        <v-combobox
-            color="#0288D1"
-            label="Institución de salud"
-            clearable
-            filled
-            hide-selected
-            outlined
-            dense
-            :items="healUnits"
-        ></v-combobox>
+        <v-overflow-btn
+          dense
+          menu-props="top"
+          item-value="text"
+          label="Unidad de salud"
+          hint="Selecciona una unidad de salud"
+          :items="healUnits"
+        ></v-overflow-btn>
       </v-col>
       <v-col cols="2">
-        <v-combobox
-            color="#0288D1"
-            label="Tipo de estudiante"
-            clearable
-            filled
-            hide-selected
-            outlined
-            dense
-            :items="studentsType"
-        ></v-combobox>
+        <v-overflow-btn
+          dense
+          menu-props="top"
+          item-value="text"
+          label="Tipo de estudiante"
+          hint="Selecciona una tipo de estudiante"
+          :items="studentsType"
+        ></v-overflow-btn>
       </v-col>
       <v-col cols="2">
-        <v-combobox
-            color="#0288D1"
-            label="Universidad"
-            clearable
-            filled
-            hide-selected
-            outlined
-            dense
-            :items="universities"
-        ></v-combobox>
+        <v-overflow-btn
+          dense
+          menu-props="top"
+          item-value="text"
+          label="Universidad"
+          hint="Selecciona una universidad"
+          :items="universities"
+        ></v-overflow-btn>
       </v-col>
       <v-col cols="3">
-        <v-menu
-          ref="menu"
-          v-model="menu"
-          :close-on-content-click="false"
-          transition="scale-transition"
-          offset-y
-          min-width="auto"
-        >
-          <template v-slot:activator="{ on, attrs }">
-            <v-text-field
-              color="#0288D1"
-              v-model="dateRangeText"
-              label="Rango de fechas"
-              prepend-icon="mdi-calendar"
-              readonly
-              v-bind="attrs"
-              v-on="on"
-            ></v-text-field>
-          </template>
-          <v-date-picker
-            ref="picker"
-            v-model="dates"
-            color="#66BB6A"
-            header-color="#0288D1"
-            :max="new Date().toISOString().substr(0, 10)"
-            range
-            @change="save"
-          ></v-date-picker>
-        </v-menu>
+        <div>
+          <v-menu
+            ref="menu"
+            v-model="menu"
+            :close-on-content-click="false"
+            transition="scale-transition"
+            offset-y
+            min-width="auto"
+          >
+            <template v-slot:activator="{ on, attrs }">
+              <v-text-field
+                v-model="dateRangeText"
+                label="Rango de fechas"
+                prepend-icon="mdi-calendar"
+                readonly
+                v-bind="attrs"
+                v-on="on"
+                color="blue darken-2"
+              ></v-text-field>
+            </template>
+            <v-date-picker
+              ref="picker"
+              v-model="dates"
+              :max="new Date().toISOString().substr(0, 10)"
+              min="1950-01-01"
+              @change="save"
+              header-color="blue darken-2"
+              color="green lighten-1"
+              range
+            ></v-date-picker>
+          </v-menu>
+        </div>
       </v-col>
       <v-col cols="2">
-        <v-btn
-          color="#66BB6A"
-          text
-          outlined
-        >
+        <v-btn color="green lighten-1" outlined>
           Consultar
         </v-btn>
       </v-col>
     </v-row>
-  </v-container>
+  </div>
 </template>
 
 <script lang="ts">
-import {server} from '@/utils/request';
+import Vue from "vue";
+import Vuex from "vuex";
+import { server } from "@/utils/request";
 
-export default {
+export default Vue.extend({
   name: "ObservationsHeader",
 
-  data: (): any => ({
-    dates: [new Date().toISOString().substr(0, 10), new Date().toISOString().substr(0, 10)],
-    menu: false,
-    healUnits: [],
-    studentsType: [],
-    universities: [],
-  }),
-  created() {
-    this.getHealthUnits();
-    this.getStudentsType();
-    this.getUniversities();
+  data() {
+    return {
+      dates: [
+        new Date().toISOString().substr(0, 10),
+        new Date().toISOString().substr(0, 10),
+      ],
+      menu: false,
+    };
   },
-  computed: {
-    dateRangeText (): any {
-      return this.dates.join(' ~ ');
-    },
-  },
-  watch: {
-    menu (val: any) {
-      val && setTimeout(() => (this.$refs.picker.activePicker = 'YEAR'));
-    },
-  },
+
   methods: {
-    save (dates: any) {
+    save: function(dates: any) {
       this.$refs.menu.save(dates);
     },
-    async getHealthUnits() {
-      try {
-        const healthUnits = await server.get('instituciones/');
-        await healthUnits.data.forEach(element => {
-          let item: string = element.nombre;
-          this.healUnits.push(item);
-        });
-      }catch (error){
-        console.log(error);
-      }
-    },
-    async getStudentsType() {
-      try {
-        const studentsType = await server.get('tiposestancia/');
-        await studentsType.data.forEach(element => {
-          let item: string = element.nombre;
-          this.studentsType.push(item);
-        })
-      }catch (error){
-        console.log(error);
-      }
-    },
-    async getUniversities() {
-      try {
-        const universities = await server.get('universidades/');
-        await universities.data.forEach(element => {
-          let item: string = element.nombre;
-          this.universities.push(item);
-        });
-      }catch (error){
-        console.log(error);
-      }
+  },
+
+  computed: {
+    ...Vuex.mapState(["healUnits", "studentsType", "universities"]),
+    ...Vuex.mapActions([
+      "getHealthUnits",
+      "getStudentsType",
+      "getUniversities",
+    ]),
+    dateRangeText(): any {
+      return this.dates.join(" ~ ");
     },
   },
-}
+
+  watch: {
+    menu(val: any) {
+      val && setTimeout(() => (this.$refs.picker.activePicker = "YEAR"));
+    },
+  },
+
+  mounted() {
+    this.getHealthUnits;
+    this.getStudentsType;
+    this.getUniversities;
+  },
+});
 </script>
-
-<style scoped>
-
-</style>
