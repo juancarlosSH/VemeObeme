@@ -76,7 +76,7 @@
 
 <script lang="ts">
 import Vue from "vue";
-import Vuex from "vuex";
+import { mapState, mapActions } from "vuex";
 import { server } from "@/utils/request";
 
 export default Vue.extend({
@@ -99,12 +99,8 @@ export default Vue.extend({
   },
 
   computed: {
-    ...Vuex.mapState(["healUnits", "studentsType", "universities"]),
-    ...Vuex.mapActions([
-      "getHealthUnits",
-      "getStudentsType",
-      "getUniversities",
-    ]),
+    ...mapState(["healUnits", "studentsType", "universities"]),
+    ...mapActions(["getHealthUnits", "getStudentsType", "getUniversities"]),
     dateRangeText(): any {
       return this.dates.join(" ~ ");
     },

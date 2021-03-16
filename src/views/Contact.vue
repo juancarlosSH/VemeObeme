@@ -15,12 +15,11 @@
           <v-col cols="2"></v-col>
           <v-col cols="8">
             <div class="text--primary">
-              En Veme OBEME nos interesa lo que tengas que decir,
-              si tienes en mente alguna opinión o sugerencia o
-              deseas incorporarte al proyecto, ponte en contacto con
-              nosotros a través del formulario de solicitud, o para
-              cualquier aclaración mediante nuestras fuentes de
-              contacto:
+              En Veme OBEME nos interesa lo que tengas que decir, si tienes en
+              mente alguna opinión o sugerencia o deseas incorporarte al
+              proyecto, ponte en contacto con nosotros a través del formulario
+              de solicitud, o para cualquier aclaración mediante nuestras
+              fuentes de contacto:
             </div>
           </v-col>
           <v-col cols="2"></v-col>
@@ -29,11 +28,7 @@
           <v-col cols="2"></v-col>
           <v-col cols="8">
             <v-btn text>
-              <v-img
-                lazy-src=""
-                max-height=""
-                max-width=""
-                src=""></v-img>
+              <v-img lazy-src="" max-height="" max-width="" src=""></v-img>
             </v-btn>
           </v-col>
           <v-col cols="2"></v-col>
@@ -46,10 +41,8 @@
 
 <script lang="ts">
 export default {
-  name: "Contact"
-}
+  name: "Contact",
+};
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>

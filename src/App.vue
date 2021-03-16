@@ -8,14 +8,13 @@
         src="@/assets/icono.svg"
       ></v-img>
       <v-spacer></v-spacer>
-      <v-btn
+      <router-link
         v-for="(link, index) in links"
         :key="index"
         :to="{ name: link.route }"
-        text
-        color="white"
-        >{{ link.name }}</v-btn
       >
+        <v-btn text color="white">{{ link.name }}</v-btn>
+      </router-link>
       <v-spacer></v-spacer>
       <!--<v-btn :to="{name: 'Login'}" color="white" outlined rounded
       >Acceso Administrador</v-btn>-->

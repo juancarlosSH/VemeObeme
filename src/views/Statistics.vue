@@ -1,13 +1,9 @@
-<template>
-
-</template>
+<template> </template>
 
 <script lang="ts">
 export default {
-  name: "Statistics"
-}
+  name: "Statistics",
+};
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>

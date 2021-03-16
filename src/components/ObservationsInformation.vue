@@ -2,11 +2,8 @@
   <v-container fluid>
     <v-row>
       <v-col cols="12">
-        <v-card
-          outlined
-          shaped
-        >
-          <div class="text-center text--primary">{{totalObservations}}</div>
+        <v-card outlined shaped>
+          <div class="text-center text--primary">{{ totalObservations }}</div>
           <div class="text-center text--primary">
             Total de observaciones
           </div>
@@ -17,20 +14,16 @@
 </template>
 
 <script lang="ts">
-import { mapState } from 'vuex'
+import { mapState } from "vuex";
 
 export default {
   name: "ObservationsInformation",
-  data: () => ({
-    
-  }),
+  data: () => ({}),
 
   methods: {
-    ...mapState(['valueObservations']),
+    ...mapState(["valueObservations"]),
   },
-}
+};
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>

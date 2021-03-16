@@ -9,6 +9,7 @@ export default new Vuex.Store({
     healUnits: [],
     studentsType: [],
     universities: [],
+    observations: [],
     valueObservations: [
       { name: "Total de observaciones", number: 0 },
       { name: "Observaciones positivas", number: 0 },
@@ -33,6 +34,19 @@ export default new Vuex.Store({
     loadUniversities: function(state: any, universitiesAPI: any) {
       universitiesAPI.forEach(function(element: any) {
         state.universities.push(element.nombre);
+      });
+    },
+
+    loadObservations: function(state: any, observationsAPI: any) {
+      observationsAPI.forEach(function(element: any) {
+        var item: any = {};
+        item.healthInstitution = element.institucionSalud;
+        item.registrationDate = element.fechaRegistro;
+        item.observationDate = element.fechaObservacion;
+        item.observationTime = element.horaObservacion;
+        item.typeObservation = element.tipoObservacion;
+        item.typeStudent = element.tipoEstudiante;
+        state.observations.push(item);
       });
     },
   },
@@ -64,7 +78,18 @@ export default new Vuex.Store({
         console.log(error);
       }
     },
+
+    getObservations: async function({ commit }) {
+      try {
+        const observationsAPI = await server.get("observaciones/");
+        commit("loadObservations", observationsAPI.data);
+      } catch (error) {
+        console.log(error);
+      }
+    },
   },
+
+  getters: {},
 
   modules: {},
 });
