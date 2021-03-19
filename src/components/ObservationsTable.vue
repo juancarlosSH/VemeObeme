@@ -1,7 +1,7 @@
 <template>
   <v-container fluid>
     <v-row>
-      <v-col cols="12">
+      <v-col cols="9">
         <v-data-table :headers="headers" :items="observations">
           <template v-slot:item.typeObservation="{ item }">
             <v-chip :color="getColor(item.typeObservation)" dark>
@@ -9,6 +9,12 @@
             </v-chip>
           </template>
         </v-data-table>
+      </v-col>
+      <v-col cols="3">
+        <v-card v-for="(observation, index) in valueObservations" :key="index" outlined class="ma-2">
+          <p class="text-sm-body-1 text-sm-center font-weight-regular pa-0 ma-0">{{observation.number}}</p>
+          <p class="text-sm-body-1 text-sm-center font-weight-regular pa-0 ma-0">{{observation.name}}</p>
+        </v-card>
       </v-col>
     </v-row>
   </v-container>
@@ -51,7 +57,7 @@ export default Vue.extend({
   },
 
   computed: {
-    ...mapState(["observations"]),
+    ...mapState(["observations", 'valueObservations']),
     ...mapActions(["getObservations"]),
   },
 

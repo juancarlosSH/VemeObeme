@@ -27,11 +27,8 @@
       </v-col>
     </v-row>
     <v-row>
-      <v-col cols="9">
+      <v-col cols="12">
         <ObservationsTable></ObservationsTable>
-      </v-col>
-      <v-col cols="3">
-        <!-- <ObservationsInformation></ObservationsInformation> -->
       </v-col>
     </v-row>
   </div>
