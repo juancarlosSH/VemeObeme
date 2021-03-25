@@ -1,25 +1,39 @@
 <template>
   <v-app>
-    <v-app-bar app flat color="blue darken-2">
-      <v-img
-        lazy-src="@/assets/icono.svg"
-        max-height="52"
-        max-width="52"
-        src="@/assets/icono.svg"
-      ></v-img>
-      <v-spacer></v-spacer>
-      <v-btn
-        v-for="(link, index) in links"
-        :key="index"
-        :to="{ name: link.route }"
-        text
-        color="white"
-        exact
-        >{{ link.name }}</v-btn
-      >
-      <v-spacer></v-spacer>
-      <!--<v-btn :to="{name: 'Login'}" color="white" outlined rounded
-      >Acceso Administrador</v-btn>-->
+    <v-app-bar app flat color="blue darken-2" absolute>
+      <v-container fluid class="pa-0 ma-0">
+        <v-row>
+          <v-col cols="4" class="d-flex justify-start align-center">
+            <v-img
+              lazy-src="@/assets/icono.svg"
+              max-height="52"
+              max-width="52"
+              src="@/assets/icono.svg"
+            ></v-img>
+            <div class="text--white">
+              <h1 class="text-md-h5 font-weight-regular white--text px-4">
+                Veme Obeme
+              </h1>
+            </div>
+          </v-col>
+          <v-col cols="4" class="d-flex justify-center align-center">
+            <v-btn
+              v-for="(link, index) in links"
+              :key="index"
+              :to="{ name: link.route }"
+              text
+              dark
+              exact
+              >{{ link.name }}</v-btn
+            >
+          </v-col>
+          <v-col cols="4" class="d-flex justify-end align-center">
+            <!-- <v-btn :to="{ name: 'Login' }" dark outlined rounded exact>
+              Acceso Administrador
+            </v-btn> -->
+          </v-col>
+        </v-row>
+      </v-container>
     </v-app-bar>
 
     <v-main>

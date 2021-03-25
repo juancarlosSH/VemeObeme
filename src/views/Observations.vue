@@ -2,7 +2,7 @@
   <div>
     <v-row>
       <v-col cols="8">
-        <h1 class="font-weight-medium text-md-h4 pa-5">Observaciones</h1>
+        <h2 class="font-weight-medium text-md-h4 pa-5">Observaciones</h2>
       </v-col>
       <v-col cols="4" class="d-flex justify-end align-center pr-10">
         <v-btn color="green lighten-1"
@@ -46,7 +46,6 @@ export default Vue.extend({
   components: {
     ObservationsHeader,
     ObservationsTable,
-    ObservationsInformation,
   },
 });
 </script>
