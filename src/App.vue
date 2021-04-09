@@ -11,8 +11,8 @@
               src="@/assets/icono.svg"
             ></v-img>
             <div class="text--white">
-              <h1 class="text-md-h5 font-weight-regular white--text px-4">
-                Veme Obeme
+              <h1 class="text-md-h6 font-weight-regular white--text px-4">
+                Veme - Obeme
               </h1>
             </div>
           </v-col>
@@ -66,7 +66,7 @@ export default Vue.extend({
       { name: "Observaciones", route: "Observations" },
       //{name: 'Estadistícas', route: 'Statistics'},
       { name: "Descargas", route: "Downloads" },
-      //{name: 'Contacto', route: 'Contact'},
+      {name: 'Contacto', route: 'Contact'},
     ],
   }),
 });

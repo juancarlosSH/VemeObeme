@@ -42,49 +42,49 @@ export default new Vuex.Store({
 
     loadObservations: function(state: any, observationsAPI: any) {
       state.observations = [];
-      state.valueObservations.forEach(function (element:any) {
+      state.valueObservations.forEach(function(element: any) {
         element.number = 0;
       });
       observationsAPI.forEach(function(element: any) {
         var item: any = {};
         item.healthInstitution = element.institucionSalud;
-        let dateArray = element.fechaRegistro.split('T');
-        let dateFormater = dateArray[0].split('-');
-        let finalDate = '';
-        dateFormater.forEach(function (element2:string) {
+        let dateArray = element.fechaRegistro.split("T");
+        let dateFormater = dateArray[0].split("-");
+        let finalDate = "";
+        dateFormater.forEach(function(element2: string) {
           if (finalDate.length < 8) {
-            finalDate = '-' + element2 + finalDate;
+            finalDate = "-" + element2 + finalDate;
           } else {
             finalDate = element2 + finalDate;
           }
         });
         item.registrationDate = finalDate;
-        dateArray = element.fechaObservacion.split('T');
-        dateFormater = dateArray[0].split('-');
-        finalDate = '';
-        dateFormater.forEach(function (element2:string) {
+        dateArray = element.fechaObservacion.split("T");
+        dateFormater = dateArray[0].split("-");
+        finalDate = "";
+        dateFormater.forEach(function(element2: string) {
           if (finalDate.length < 8) {
-            finalDate = '-' + element2 + finalDate;
+            finalDate = "-" + element2 + finalDate;
           } else {
             finalDate = element2 + finalDate;
           }
         });
         item.observationDate = finalDate;
-        dateArray = element.horaObservacion.split('T');
-        dateFormater = dateArray[1].split('.');
+        dateArray = element.horaObservacion.split("T");
+        dateFormater = dateArray[1].split(".");
         item.observationTime = dateFormater[0];
         switch (element.tipoObservacion) {
           case "ObservacionPositiva":
             state.valueObservations[1].number++;
-            item.typeObservation = 'Positiva';
+            item.typeObservation = "Positiva";
             break;
           case "ObservacionSupervision":
             state.valueObservations[2].number++;
-            item.typeObservation = 'Supervisión';
+            item.typeObservation = "Supervisión";
             break;
           case "ObservacionDerechos":
             state.valueObservations[3].number++;
-            item.typeObservation = 'Respeto a derechos';
+            item.typeObservation = "Respeto a derechos";
             break;
           default:
             break;
@@ -147,18 +147,7 @@ export default new Vuex.Store({
     },
   },
 
-  getters: {
-    /* splitString: function (date:string, separator: string, returnPosition: number): string {
-      let dateArray = date.split(separator);
-      return dateArray[returnPosition];
-    },
-
-    observationFormat: function name(state:any) {
-      state.observations.forEach(function (element:any) {
-        element.registrationDate = state.splitString(element.registrationDate, 'T', 0);
-      });
-    } */
-  },
+  getters: {},
 
   modules: {},
 });

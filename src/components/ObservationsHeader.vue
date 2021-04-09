@@ -9,6 +9,7 @@
           label="Unidad de salud"
           hint="Selecciona una unidad de salud"
           :items="healUnits"
+          v-model="healUnit"
         ></v-overflow-btn>
       </v-col>
       <v-col cols="2">
@@ -19,6 +20,7 @@
           label="Tipo de estudiante"
           hint="Selecciona una tipo de estudiante"
           :items="studentsType"
+          v-model="student"
         ></v-overflow-btn>
       </v-col>
       <v-col cols="2">
@@ -29,6 +31,7 @@
           label="Universidad"
           hint="Selecciona una universidad"
           :items="universities"
+          v-model="university"
         ></v-overflow-btn>
       </v-col>
       <v-col cols="3">
@@ -84,6 +87,9 @@ export default Vue.extend({
 
   data() {
     return {
+      healUnit: '',
+      student: '',
+      university: '',
       dates: [
         new Date().toISOString().substr(0, 10),
         new Date().toISOString().substr(0, 10),
@@ -96,6 +102,15 @@ export default Vue.extend({
     save: function(dates: any) {
       this.$refs.menu.save(dates);
     },
+
+    getObservations: async function () {
+      try {
+        const healthUnitsAPI = await server.get("instituciones/");
+        
+      } catch (error) {
+        console.log(error);
+      }
+    }
   },
 
   computed: {
