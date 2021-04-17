@@ -11,9 +11,22 @@
         </v-data-table>
       </v-col>
       <v-col cols="3">
-        <v-card v-for="(observation, index) in valueObservations" :key="index" outlined class="ma-2">
-          <p class="text-sm-body-1 text-sm-center font-weight-regular pa-0 ma-0">{{observation.number}}</p>
-          <p class="text-sm-body-1 text-sm-center font-weight-regular pa-0 ma-0">{{observation.name}}</p>
+        <v-card
+          v-for="(observation, index) in valueObservations"
+          :key="index"
+          outlined
+          class="ma-2"
+        >
+          <p
+            class="text-sm-body-1 text-sm-center font-weight-regular pa-0 ma-0"
+          >
+            {{ observation.number }}
+          </p>
+          <p
+            class="text-sm-body-1 text-sm-center font-weight-regular pa-0 ma-0"
+          >
+            {{ observation.name }}
+          </p>
         </v-card>
       </v-col>
     </v-row>
@@ -57,7 +70,7 @@ export default Vue.extend({
   },
 
   computed: {
-    ...mapState(["observations", 'valueObservations']),
+    ...mapState(["observations", "valueObservations"]),
     ...mapActions(["getObservations"]),
   },
 

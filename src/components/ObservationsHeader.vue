@@ -69,7 +69,11 @@
         </div>
       </v-col>
       <v-col cols="2">
-        <v-btn color="green lighten-1" outlined>
+        <v-btn
+          color="green lighten-1"
+          outlined
+          @click="getObservationsWParameter(getObservations())"
+        >
           Consultar
         </v-btn>
       </v-col>
@@ -80,16 +84,15 @@
 <script lang="ts">
 import Vue from "vue";
 import { mapState, mapActions } from "vuex";
-import { server } from "@/utils/request";
 
 export default Vue.extend({
   name: "ObservationsHeader",
 
   data() {
     return {
-      healUnit: '',
-      student: '',
-      university: '',
+      healUnit: "",
+      student: "",
+      university: "",
       dates: [
         new Date().toISOString().substr(0, 10),
         new Date().toISOString().substr(0, 10),
@@ -103,19 +106,79 @@ export default Vue.extend({
       this.$refs.menu.save(dates);
     },
 
-    getObservations: async function () {
-      try {
-        const healthUnitsAPI = await server.get("instituciones/");
-        
-      } catch (error) {
-        console.log(error);
+    dateFormat: function(date: string): string {
+      var auxiliarDate = date.split("-");
+      var finalDate = "";
+      auxiliarDate.forEach(function(element: string) {
+        if (finalDate.length < 8) {
+          finalDate = "-" + element + finalDate;
+        } else {
+          finalDate = element + finalDate;
+        }
+      });
+      return finalDate;
+    },
+
+    getObservations: function(): string {
+      var baseChain: string = "observaciones/?";
+      if (this.healUnit !== "") {
+        var auxiliar = this.healUnit;
+        var id = 0;
+        for (let i = 0; i < this.healUnits.length; i++) {
+          id++;
+          if (auxiliar == this.healUnits[i]) {
+            break;
+          }
+        }
+        baseChain += "idInstitucionSalud=" + id;
       }
-    }
+      if (this.student != "") {
+        if (baseChain.length >= 15) {
+          baseChain += "&tipoEstancia=" + this.student;
+        } else {
+          baseChain += "tipoEstancia=" + this.student;
+        }
+      }
+      if (this.university !== "") {
+        var auxiliar = this.university;
+        var id = 0;
+        for (let i = 0; i < this.universities.length; i++) {
+          id++;
+          if (auxiliar == this.universities[i]) {
+            break;
+          }
+        }
+        if (baseChain.length >= 15) {
+          baseChain += "&idUniversidad=" + id;
+        } else {
+          baseChain += "idUniversidad=" + id;
+        }
+      }
+      if (baseChain.length >= 15) {
+        baseChain +=
+          "&fechaInicial=" +
+          this.dateFormat(this.dates[0]) +
+          "&fechaFinal=" +
+          this.dateFormat(this.dates[1]);
+      } else {
+        baseChain +=
+          "fechaInicial=" +
+          this.dateFormat(this.dates[0]) +
+          "&fechaFinal=" +
+          this.dateFormat(this.dates[1]);
+      }
+      return baseChain;
+    },
   },
 
   computed: {
     ...mapState(["healUnits", "studentsType", "universities"]),
-    ...mapActions(["getHealthUnits", "getStudentsType", "getUniversities"]),
+    ...mapActions([
+      "getHealthUnits",
+      "getStudentsType",
+      "getUniversities",
+      "getObservationsWParameter()",
+    ]),
     dateRangeText(): any {
       return this.dates.join(" ~ ");
     },

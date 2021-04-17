@@ -145,6 +145,15 @@ export default new Vuex.Store({
         console.log(error);
       }
     },
+
+    getObservationsWParameter: async function({ commit }, baseChain: string) {
+      try {
+        const observationsAPI = await server.get(baseChain);
+        commit("loadObservations", observationsAPI.data);
+      } catch (error) {
+        console.log(error);
+      }
+    },
   },
 
   getters: {},

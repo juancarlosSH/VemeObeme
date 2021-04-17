@@ -66,7 +66,7 @@ export default Vue.extend({
       { name: "Observaciones", route: "Observations" },
       //{name: 'Estadistícas', route: 'Statistics'},
       { name: "Descargas", route: "Downloads" },
-      {name: 'Contacto', route: 'Contact'},
+      //{name: 'Contacto', route: 'Contact'},
     ],
   }),
 });
