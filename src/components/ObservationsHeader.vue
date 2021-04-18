@@ -69,11 +69,7 @@
         </div>
       </v-col>
       <v-col cols="2">
-        <v-btn
-          color="green lighten-1"
-          outlined
-          @click="getObservationsWParameter(getObservations())"
-        >
+        <v-btn color="green lighten-1" outlined @click="getObservations()">
           Consultar
         </v-btn>
       </v-col>
@@ -119,7 +115,7 @@ export default Vue.extend({
       return finalDate;
     },
 
-    getObservations: function(): string {
+    getObservations: function() {
       var baseChain: string = "observaciones/?";
       if (this.healUnit !== "") {
         var auxiliar = this.healUnit;
@@ -167,7 +163,7 @@ export default Vue.extend({
           "&fechaFinal=" +
           this.dateFormat(this.dates[1]);
       }
-      return baseChain;
+      this.$store.dispatch("getObservationsWParameter", baseChain);
     },
   },
 
@@ -177,8 +173,9 @@ export default Vue.extend({
       "getHealthUnits",
       "getStudentsType",
       "getUniversities",
-      "getObservationsWParameter()",
+      "getObservationsWParameter",
     ]),
+
     dateRangeText(): any {
       return this.dates.join(" ~ ");
     },
