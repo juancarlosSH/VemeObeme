@@ -129,13 +129,21 @@ export default Vue.extend({
         baseChain += "idInstitucionSalud=" + id;
       }
       if (this.student != "") {
-        if (baseChain.length >= 15) {
+        if (this.student == "Servicio Social") {
+          if (baseChain.length >= 15) {
+          baseChain += "&tipoEstancia=" + "Servicio_social";
+        } else {
+          baseChain += "tipoEstancia=" + "Servicio_social";
+        }
+        } else {
+          if (baseChain.length >= 15) {
           baseChain += "&tipoEstancia=" + this.student;
         } else {
           baseChain += "tipoEstancia=" + this.student;
         }
+        }
       }
-      if (this.university !== "") {
+      if (this.university != "") {
         var auxiliar = this.university;
         var id = 0;
         for (let i = 0; i < this.universities.length; i++) {

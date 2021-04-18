@@ -30,7 +30,11 @@ export default new Vuex.Store({
 
     loadStudentsType: function(state: any, studentsTypeAPI: any) {
       studentsTypeAPI.forEach(function(element: any) {
-        state.studentsType.push(element.nombre);
+        if (element.nombre == "Servicio_social") {
+          state.studentsType.push("Servicio social");
+        } else {
+          state.studentsType.push(element.nombre);
+        }
       });
     },
 
