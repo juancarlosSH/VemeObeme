@@ -131,16 +131,16 @@ export default Vue.extend({
       if (this.student != "") {
         if (this.student == "Servicio Social") {
           if (baseChain.length >= 15) {
-          baseChain += "&tipoEstancia=" + "Servicio_social";
-        } else {
-          baseChain += "tipoEstancia=" + "Servicio_social";
-        }
+            baseChain += "&tipoEstancia=" + "Servicio_social";
+          } else {
+            baseChain += "tipoEstancia=" + "Servicio_social";
+          }
         } else {
           if (baseChain.length >= 15) {
-          baseChain += "&tipoEstancia=" + this.student;
-        } else {
-          baseChain += "tipoEstancia=" + this.student;
-        }
+            baseChain += "&tipoEstancia=" + this.student;
+          } else {
+            baseChain += "tipoEstancia=" + this.student;
+          }
         }
       }
       if (this.university != "") {

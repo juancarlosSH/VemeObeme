@@ -59,7 +59,7 @@
         </v-btn>
       </v-col>
     </v-row>
-     <v-row>
+    <v-row>
       <v-col cols="12">
         <h2 class="font-weight-regular text-md-h3 text-center py-5">
           ¿Por qué colaborar con nosotros?
@@ -123,6 +123,6 @@
 import Vue from "vue";
 
 export default Vue.extend({
-  name: "Downloads"
+  name: "Downloads",
 });
 </script>
